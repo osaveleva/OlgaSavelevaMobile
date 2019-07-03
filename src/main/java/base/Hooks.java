@@ -16,7 +16,7 @@ public class Hooks extends DriverSetup {
 
     @BeforeClass
     public void setUp() throws Exception {
-        prepareWeb();
+        prepareDriver();
     }
 
     @AfterClass
