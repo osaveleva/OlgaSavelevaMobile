@@ -6,19 +6,37 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-public class FirstSimpleNativeTest {
-    @Test(groups = "native")
-    public class FirstSimpleTest extends Hooks {
-        protected FirstSimpleTest() throws IOException {
-            super();
-        }
+import static constants.MobileTestingConstants.TITLE1;
+import static constants.MobileTestingConstants.TITLE2;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-        @Test(description = "Check contact manager application")
-        private void applicationTest() throws Exception {
-            String app_package_name = "in.smartappcart.contactmanager:id/";
-            By add_btn = By.id(app_package_name + "ll1ss");
-            driver().findElement(add_btn).isDisplayed();
-            driver().findElement(add_btn).click();
-        }
+
+@Test(groups = "native")
+public class FirstSimpleNativeTest extends Hooks {
+
+    public FirstSimpleNativeTest() throws IOException {
+        super();
+    }
+
+    @Test(description = "Check contact manager application")
+    private void contactUs() {
+        assertTrue(nativeTestBase.contactUs.isDisplayed());
+        nativeTestBase.contactUs.click();
+        assertTrue(nativeTestBase.crname.isDisplayed());
+        assertTrue(nativeTestBase.textcremail.isDisplayed());
+        assertTrue(nativeTestBase.textcrcontact.isDisplayed());
+        assertTrue(nativeTestBase.crsubmit2.isDisplayed());
+        assertTrue(nativeTestBase.crreset2.isDisplayed());
+    }
+
+    @Test(description = "Reset password")
+    private void resetPassword() {
+        assertTrue(nativeTestBase.setPassword.isDisplayed());
+        nativeTestBase.setPassword.click();
+        assertEquals(nativeTestBase.texttitle1.getText(), TITLE1);
+        assertEquals(nativeTestBase.testtiltle2.getText(), TITLE2);
+        nativeTestBase.submitPassword();
     }
 }
+
