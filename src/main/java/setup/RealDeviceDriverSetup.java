@@ -11,6 +11,10 @@ import java.net.URL;
 
 import static constants.MobileTestingConstants.*;
 
+/**
+ * Prepare driver and set desired capabilities for real device's tests
+ */
+
 public class RealDeviceDriverSetup extends TestProperties {
     private static WebDriverWait waitSingle;
     private static AppiumDriver driverSingle = null;
