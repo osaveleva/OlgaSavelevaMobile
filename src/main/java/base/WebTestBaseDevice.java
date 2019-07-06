@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Methods for real device's tests
+ */
 
 public class WebTestBaseDevice extends RealDeviceDriverSetup {
 

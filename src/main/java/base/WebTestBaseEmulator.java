@@ -7,6 +7,10 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+/**
+ * Methods for emulator's tests
+ */
+
 public class WebTestBaseEmulator extends DriverSetupEmulator {
 
     public WebTestBaseEmulator() throws IOException {

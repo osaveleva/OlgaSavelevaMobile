@@ -1,6 +1,5 @@
 package scenarious.device.nativeTests;
 
-import base.HooksEmulator;
 import base.HooksRealDevice;
 import org.testng.annotations.Test;
 
@@ -21,23 +20,23 @@ public class DeviceNativeTest extends HooksRealDevice {
 
     @Test(description = "Check contact manager application")
     private void contactUs() {
-        assertTrue(nativeTestBase.contactUs.isDisplayed());
-        nativeTestBase.contactUs.click();
-        assertTrue(nativeTestBase.contactName.isDisplayed());
-        assertTrue(nativeTestBase.contactEmail.isDisplayed());
-        assertTrue(nativeTestBase.contactNaumber.isDisplayed());
-        assertTrue(nativeTestBase.contactUsSubmitButton.isDisplayed());
-        assertTrue(nativeTestBase.resetPassword.isDisplayed());
+        assertTrue(contactManagerPage.contactUs.isDisplayed());
+        contactManagerPage.contactUs.click();
+        assertTrue(contactManagerPage.contactName.isDisplayed());
+        assertTrue(contactManagerPage.contactEmail.isDisplayed());
+        assertTrue(contactManagerPage.contactNaumber.isDisplayed());
+        assertTrue(contactManagerPage.contactUsSubmitButton.isDisplayed());
+        assertTrue(contactManagerPage.resetPassword.isDisplayed());
     }
 
     @Test(description = "Reset password")
     private void resetPassword() throws Exception {
         driver().launchApp();
-        assertTrue(nativeTestBase.setPassword.isDisplayed());
-        nativeTestBase.setPassword.click();
-        assertEquals(nativeTestBase.resetTitle1.getText(), TITLE1);
-        assertEquals(nativeTestBase.resetTiltle2.getText(), TITLE2);
-        nativeTestBase.submitPassword();
+        assertTrue(contactManagerPage.setPassword.isDisplayed());
+        contactManagerPage.setPassword.click();
+        assertEquals(contactManagerPage.resetTitle1.getText(), TITLE1);
+        assertEquals(contactManagerPage.resetTiltle2.getText(), TITLE2);
+        contactManagerPage.submitPassword();
     }
 }
 

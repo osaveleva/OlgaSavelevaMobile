@@ -1,18 +1,19 @@
-package base;
+package pageObjects;
 
-import io.appium.java_client.android.AndroidKeyCode;
-import javafx.scene.input.KeyEvent;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import setup.DriverSetupEmulator;
 
 import java.io.IOException;
-import java.security.Key;
 
 import static constants.MobileTestingConstants.PASSWORD;
 
-public class NativeTestBase extends DriverSetupEmulator {
-    public NativeTestBase() throws IOException {
+/**
+ * PageObject for ContactManager application
+ */
+
+public class ContactManagerPage extends DriverSetupEmulator {
+    public ContactManagerPage() throws IOException {
         super();
     }
 
