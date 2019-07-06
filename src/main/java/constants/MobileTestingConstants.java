@@ -2,7 +2,7 @@ package constants;
 
 public class MobileTestingConstants {
 
-    public static final String BROWSERCHROME = "Chrome";
+    public static final String BROWSERCHROME = "chrome";
     public static final String BROWSERSAFARI = "Safari";
     public static final String TEST_PLATFORM_ANDROID = "Android";
     public static final String TEST_PLATFORM_IOS = "iOS";
@@ -12,4 +12,6 @@ public class MobileTestingConstants {
     public static final String TITLE1 = "Set a Password";
     public static final String TITLE2 = "Please provide a Password";
     public static final String PASSWORD = "123456";
+
+    public static final String APPACTIVITY = "appActivity";
 }
