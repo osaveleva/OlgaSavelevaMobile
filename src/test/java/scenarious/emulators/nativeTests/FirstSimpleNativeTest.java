@@ -22,6 +22,7 @@ public class FirstSimpleNativeTest extends HooksEmulator {
     private void contactUs() throws Exception {
         assertTrue(contactManagerPage.contactUs.isDisplayed());
         contactManagerPage.contactUs.click();
+        //It's a workaround. As keyboard is visible on emulator and part of the screen is not available cause of that
         driver().hideKeyboard();
         assertTrue(contactManagerPage.contactName.isDisplayed());
         assertTrue(contactManagerPage.contactEmail.isDisplayed());
@@ -32,6 +33,7 @@ public class FirstSimpleNativeTest extends HooksEmulator {
 
     @Test(description = "Contact Manager: Reset password")
     private void resetPassword() throws Exception {
+        //It's a workaround as I do not know how to turn back on application's home page
         driver().launchApp();
         assertTrue(contactManagerPage.setPassword.isDisplayed());
         contactManagerPage.setPassword.click();

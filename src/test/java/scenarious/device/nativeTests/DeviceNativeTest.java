@@ -31,6 +31,7 @@ public class DeviceNativeTest extends HooksRealDevice {
 
     @Test(description = "Reset password")
     private void resetPassword() throws Exception {
+        //It's a workaround as I do not know how to turn back on application's home page
         driver().launchApp();
         assertTrue(contactManagerPage.setPassword.isDisplayed());
         contactManagerPage.setPassword.click();
