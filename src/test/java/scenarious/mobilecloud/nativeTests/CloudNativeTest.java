@@ -1,18 +1,16 @@
 package scenarious.mobilecloud.nativeTests;
 
-import base.HooksCloud;
+import base.Hooks;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static constants.MobileTestingConstants.TITLE1;
-import static constants.MobileTestingConstants.TITLE2;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 
 @Test(groups = "native")
-public class CloudNativeTest extends HooksCloud {
+public class CloudNativeTest extends Hooks {
 
     public CloudNativeTest() throws IOException {
         super();

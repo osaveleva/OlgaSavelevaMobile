@@ -2,7 +2,7 @@ package pageObjects;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import setup.DriverSetupEmulator;
+import setup.DriverSetup;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import static constants.MobileTestingConstants.PASSWORD;
  * PageObject for ContactManager application
  */
 
-public class ContactManagerPage extends DriverSetupEmulator {
+public class ContactManagerPage extends DriverSetup {
     public ContactManagerPage() throws IOException {
         super();
     }
