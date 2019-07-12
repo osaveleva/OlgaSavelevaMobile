@@ -1,7 +1,7 @@
 package base;
 
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import setup.DriverSetupEmulator;
+import setup.DriverSetup;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -11,9 +11,9 @@ import java.net.URL;
  * Methods for emulator's tests
  */
 
-public class WebTestBaseEmulator extends DriverSetupEmulator {
+public class WebTestBase extends DriverSetup {
 
-    public WebTestBaseEmulator() throws IOException {
+    public WebTestBase() throws IOException {
         super();
     }
 

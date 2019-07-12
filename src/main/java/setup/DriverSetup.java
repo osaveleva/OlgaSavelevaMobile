@@ -12,10 +12,10 @@ import java.net.URL;
 import static constants.MobileTestingConstants.*;
 
 /**
- * Prepare driver and set desired capabilities for real device's tests
+ * Prepare driver and set desired capabilities for emulator's tests
  */
 
-public class RealDeviceDriverSetup extends TestProperties {
+public class DriverSetup extends TestProperties {
     private static WebDriverWait waitSingle;
     private static AppiumDriver driverSingle = null;
 
@@ -23,16 +23,18 @@ public class RealDeviceDriverSetup extends TestProperties {
     protected String SUT;
     private String TEST_PLATFORM;
     private String DRIVER;
-    private String DEVICE_NAME;
+    private String DEVICE_NAME_EMULATOR;
     private String APPACTIVITY_VALUE;
+    private String DEVICE_NAME;
 
 
-    protected RealDeviceDriverSetup() throws IOException {
+    protected DriverSetup() throws IOException {
         AUT = getProp("aut");
         TEST_PLATFORM = getProp("platformName");
         SUT = getProp("sut");
         DRIVER = getProp("driver");
-        DEVICE_NAME = getProp("deviceNameDevice");
+        DEVICE_NAME_EMULATOR = getProp("deviceNameEmulator");
+        DEVICE_NAME = getProp("deviceName");
         APPACTIVITY_VALUE = getProp("appactivity");
     }
 
@@ -42,7 +44,10 @@ public class RealDeviceDriverSetup extends TestProperties {
 
         switch (TEST_PLATFORM) {
             case TEST_PLATFORM_ANDROID:
-                cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
+                if (DEVICE_NAME_EMULATOR != null && DEVICE_NAME == null)
+                    cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME_EMULATOR);
+                else  if (DEVICE_NAME_EMULATOR == null && DEVICE_NAME != null)
+                    cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
                 browserName = BROWSERCHROME;
                 break;
             case TEST_PLATFORM_IOS:

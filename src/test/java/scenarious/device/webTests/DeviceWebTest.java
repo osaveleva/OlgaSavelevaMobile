@@ -1,8 +1,8 @@
 package scenarious.device.webTests;
 
 
-import base.HooksRealDevice;
-import base.WebTestBaseDevice;
+import base.Hooks;
+import base.WebTestBase;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 
@@ -12,8 +12,8 @@ import static constants.MobileTestingConstants.SUT_TITLE;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = "web")
-public class DeviceWebTest extends HooksRealDevice {
-    private WebTestBaseDevice webTestBase = new WebTestBaseDevice();
+public class DeviceWebTest extends Hooks {
+    private WebTestBase webTestBase = new WebTestBase();
 
     protected DeviceWebTest() throws IOException {
         super();

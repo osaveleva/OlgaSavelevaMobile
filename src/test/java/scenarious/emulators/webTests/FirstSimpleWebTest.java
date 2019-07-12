@@ -1,8 +1,8 @@
 package scenarious.emulators.webTests;
 
 
-import base.HooksEmulator;
-import base.WebTestBaseEmulator;
+import base.Hooks;
+import base.WebTestBase;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -12,8 +12,8 @@ import static org.apache.http.HttpStatus.*;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = "web")
-public class FirstSimpleWebTest extends HooksEmulator {
-    private WebTestBaseEmulator webTestBaseEmulator = new WebTestBaseEmulator();
+public class FirstSimpleWebTest extends Hooks {
+    private WebTestBase webTestBaseEmulator = new WebTestBase();
 
     protected FirstSimpleWebTest() throws IOException {
         super();

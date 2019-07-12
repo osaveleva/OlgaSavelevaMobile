@@ -1,6 +1,6 @@
 package scenarious.emulators.nativeTests;
 
-import base.HooksEmulator;
+import base.Hooks;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 
 
 @Test(groups = "native")
-public class FirstSimpleNativeTest extends HooksEmulator {
+public class FirstSimpleNativeTest extends Hooks {
 
     public FirstSimpleNativeTest() throws IOException {
         super();

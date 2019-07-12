@@ -1,6 +1,6 @@
 package scenarious.device.nativeTests;
 
-import base.HooksRealDevice;
+import base.Hooks;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ import static org.testng.Assert.assertTrue;
 
 
 @Test(groups = "native")
-public class DeviceNativeTest extends HooksRealDevice {
+public class DeviceNativeTest extends Hooks {
 
     public DeviceNativeTest() throws IOException {
         super();
