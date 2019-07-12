@@ -1,0 +1,13 @@
+Answers to tasks 5 and 6
+
+5. Modify existing tests to run on a real device. What should be changed?
+  In test.properties file I created new parameter for real device.
+  This parameter will be set in appium desired capabities.
+  For real device I also added new capabity "appactivity"
+  Implementation: src\main\setup\RealDeviceDriverSetup.java
+
+6. Connect a real device to Appium (describe required actions) and run tests. Are there any difference with run on emulator?
+   For native tests (for Contact MAnager application) full screen is visible when test open application on real device.
+   But if test open the same application on emulator, part of the screen is not available as keyboard is visible.
+   To run the same test on emulator I have to hide keyborad.
+   driver().hideKeyboard();
