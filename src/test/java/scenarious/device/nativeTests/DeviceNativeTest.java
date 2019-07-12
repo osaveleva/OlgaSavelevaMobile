@@ -19,7 +19,8 @@ public class DeviceNativeTest extends Hooks {
     }
 
     @Test(description = "Check contact manager application")
-    private void contactUs() {
+    private void contactUs() throws Exception {
+        driver().launchApp();
         assertTrue(contactManagerPage.contactUs.isDisplayed());
         contactManagerPage.contactUs.click();
         assertTrue(contactManagerPage.contactName.isDisplayed());
