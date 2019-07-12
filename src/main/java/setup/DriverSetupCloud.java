@@ -12,10 +12,10 @@ import java.net.URL;
 import static constants.MobileTestingConstants.*;
 
 /**
- * Prepare driver and set desired capabilities for real device's tests
+ * Prepare driver and set desired capabilities for emulator's tests
  */
 
-public class RealDeviceDriverSetup extends TestProperties {
+public class DriverSetupCloud extends TestProperties {
     private static WebDriverWait waitSingle;
     private static AppiumDriver driverSingle = null;
 
@@ -25,16 +25,18 @@ public class RealDeviceDriverSetup extends TestProperties {
     private String DRIVER;
     private String DEVICE_NAME;
     private String APPACTIVITY_VALUE;
+    private String UDID_VALUE;
     private String APPPACKAGE_VALUE;
 
 
-    protected RealDeviceDriverSetup() throws IOException {
+    protected DriverSetupCloud() throws IOException {
         AUT = getProp("aut");
         TEST_PLATFORM = getProp("platformName");
         SUT = getProp("sut");
         DRIVER = getProp("driver");
-        DEVICE_NAME = getProp("deviceNameDevice");
+        DEVICE_NAME = getProp("deviceName");
         APPACTIVITY_VALUE = getProp("appactivity");
+        UDID_VALUE = getProp("udid");
         APPPACKAGE_VALUE = getProp("appPackage");
     }
 
@@ -44,11 +46,14 @@ public class RealDeviceDriverSetup extends TestProperties {
 
         switch (TEST_PLATFORM) {
             case TEST_PLATFORM_ANDROID:
-                cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
+             //   cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
+                cap.setCapability(UDID, UDID_VALUE);
                 browserName = BROWSERCHROME;
                 break;
             case TEST_PLATFORM_IOS:
                 browserName = BROWSERSAFARI;
+               // cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
+                cap.setCapability(UDID, UDID_VALUE);
                 break;
             default:
                 throw new Exception("Unknown mobile paltform");
@@ -57,8 +62,9 @@ public class RealDeviceDriverSetup extends TestProperties {
 
         if (AUT != null && SUT == null) {
             File app = new File(AUT);
-            cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+            //cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
             cap.setCapability(APPPACKAGE, APPPACKAGE_VALUE);
+            cap.setCapability(APPACTIVITY, APPACTIVITY_VALUE);
         } else if (SUT != null && AUT == null) {
             cap.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
             cap.setCapability(APPACTIVITY, APPACTIVITY_VALUE);

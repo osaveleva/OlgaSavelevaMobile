@@ -14,4 +14,6 @@ public class MobileTestingConstants {
     public static final String PASSWORD = "123456";
 
     public static final String APPACTIVITY = "appActivity";
+    public static final String UDID = "udid";
+    public static final String APPPACKAGE = "appPackage";
 }
