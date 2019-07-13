@@ -51,12 +51,12 @@ public class ContactManagerPage extends DriverSetup {
     private WebElement submitPasswordButton;
 
 
-    public void submitPassword(){
-        crpass.sendKeys(PASSWORD);
+    public void submitPassword() {
+        crpass.sendKeys(PASSWORD.getRecord());
         submitPasswordButton.click();
     }
 
-    public String titleValue(WebElement element){
+    public String titleValue(WebElement element) {
         return element.getText();
     }
 }

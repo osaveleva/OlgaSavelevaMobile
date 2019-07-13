@@ -5,8 +5,7 @@ import org.testng.annotations.Test;
 
 import java.io.IOException;
 
-import static constants.MobileTestingConstants.TITLE1;
-import static constants.MobileTestingConstants.TITLE2;
+import static constants.MobileTestingConstants.*;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
@@ -36,8 +35,8 @@ public class DeviceNativeTest extends Hooks {
         driver().launchApp();
         assertTrue(contactManagerPage.setPassword.isDisplayed());
         contactManagerPage.setPassword.click();
-        assertEquals(contactManagerPage.resetTitle1.getText(), TITLE1);
-        assertEquals(contactManagerPage.resetTiltle2.getText(), TITLE2);
+        assertEquals(contactManagerPage.resetTitle1.getText(), TITLE1.getRecord());
+        assertEquals(contactManagerPage.resetTiltle2.getText(), TITLE2.getRecord());
         contactManagerPage.submitPassword();
     }
 }

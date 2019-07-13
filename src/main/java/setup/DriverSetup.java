@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.net.URL;
 
 import static constants.MobileTestingConstants.*;
+import static constants.PlatformConstants.*;
 
 /**
  * Prepare driver and set desired capabilities for emulator's tests
@@ -18,6 +19,7 @@ import static constants.MobileTestingConstants.*;
 public class DriverSetup extends TestProperties {
     private static WebDriverWait waitSingle;
     private static AppiumDriver driverSingle = null;
+
 
     private String AUT;
     protected String SUT;
@@ -42,16 +44,17 @@ public class DriverSetup extends TestProperties {
         DesiredCapabilities cap = new DesiredCapabilities();
         String browserName;
 
+
         switch (TEST_PLATFORM) {
-            case TEST_PLATFORM_ANDROID:
+            case PLATFORM_ANDROID:
                 if (DEVICE_NAME_EMULATOR != null && DEVICE_NAME == null)
                     cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME_EMULATOR);
-                else  if (DEVICE_NAME_EMULATOR == null && DEVICE_NAME != null)
+                else if (DEVICE_NAME_EMULATOR == null && DEVICE_NAME != null)
                     cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
-                browserName = BROWSERCHROME;
+                browserName = BROWSERCHROME.getRecord();
                 break;
-            case TEST_PLATFORM_IOS:
-                browserName = BROWSERSAFARI;
+            case PLATFORM_iOS:
+                browserName = BROWSERSAFARI.getRecord();
                 break;
             default:
                 throw new Exception("Unknown mobile paltform");
@@ -61,10 +64,10 @@ public class DriverSetup extends TestProperties {
         if (AUT != null && SUT == null) {
             File app = new File(AUT);
             cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-            cap.setCapability("autoLaunch","false");
+            //cap.setCapability("autoLaunch","false");
         } else if (SUT != null && AUT == null) {
             cap.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
-            cap.setCapability(APPACTIVITY, APPACTIVITY_VALUE);
+            cap.setCapability(APPACTIVITY.getRecord(), APPACTIVITY_VALUE);
         } else {
             throw new Exception("Unclear type of mobile app");
         }
