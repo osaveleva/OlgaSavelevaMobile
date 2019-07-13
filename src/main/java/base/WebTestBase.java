@@ -31,7 +31,7 @@ public class WebTestBase extends DriverSetup {
         return driver().getTitle();
     }
 
-    public void driverWaitUntil(String sut){
-        driverWait().until(ExpectedConditions.urlToBe(sut+"/"));
+    public void driverWaitUntil(String sut) {
+        driverWait().until(ExpectedConditions.urlToBe(sut + "/"));
     }
 }

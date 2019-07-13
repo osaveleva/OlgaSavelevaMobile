@@ -23,8 +23,6 @@ public class CloudWebTest extends Hooks {
     protected void websiteTest() throws Exception {
         webTestBaseEmulator.openSUT(SUT);
         webTestBaseEmulator.driverWaitUntil(SUT);
-        //Print site title to check that correct sut is opened
-        System.out.println("Print site title "+webTestBaseEmulator.getSUTTitle());
         assertEquals(webTestBaseEmulator.getSUTTitle(), SUT_TITLE);
         assertEquals(webTestBaseEmulator.getHTTPStatusCode(SUT), SC_OK);
         assertEquals(webTestBaseEmulator.getSUTTitle(), SUT_TITLE);

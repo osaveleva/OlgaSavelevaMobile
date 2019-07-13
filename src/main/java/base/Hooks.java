@@ -3,7 +3,7 @@ package base;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pageObjects.ContactManagerPage;
+import pageObjects.Calculator;
 import setup.DriverSetup;
 
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class Hooks extends DriverSetup {
 
-    protected ContactManagerPage contactManagerPage;
+    protected Calculator calculator;
 
     public Hooks() throws IOException {
         super();
@@ -23,7 +23,7 @@ public class Hooks extends DriverSetup {
     @BeforeClass
     public void setUp() throws Exception {
         prepareDriver();
-        contactManagerPage = PageFactory.initElements(driver(), ContactManagerPage.class);
+        calculator = PageFactory.initElements(driver(), Calculator.class);
     }
 
     @AfterClass

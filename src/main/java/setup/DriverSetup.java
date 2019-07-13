@@ -59,9 +59,9 @@ public class DriverSetup extends TestProperties {
 
         if (AUT != null && SUT == null) {
             File app = new File(AUT);
-            cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+            //    cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
             cap.setCapability(APPPACKAGE, APPPACKAGE_VALUE);
-           // cap.setCapability(APPACTIVITY, APPACTIVITY_VALUE);
+            cap.setCapability(APPACTIVITY, APPACTIVITY_VALUE);
         } else if (SUT != null && AUT == null) {
             cap.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
         } else {

@@ -1,6 +1,7 @@
 package scenarious.mobilecloud.nativeTests;
 
 import base.Hooks;
+import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -16,27 +17,16 @@ public class CloudNativeTest extends Hooks {
         super();
     }
 
-    @Test(description = "Check contact manager application")
-    private void contactUs() {
-        assertTrue(contactManagerPage.contactUs.isDisplayed());
-        contactManagerPage.contactUs.click();
-        assertTrue(contactManagerPage.contactName.isDisplayed());
-        assertTrue(contactManagerPage.contactEmail.isDisplayed());
-        assertTrue(contactManagerPage.contactNaumber.isDisplayed());
-        assertTrue(contactManagerPage.contactUsSubmitButton.isDisplayed());
-        assertTrue(contactManagerPage.resetPassword.isDisplayed());
+    @Test(description = "Check calculator application")
+    private void calculatorAdd() {
+        int result = Integer.valueOf(calculator.digit2.getText()) + Integer.valueOf(calculator.digit5.getText());
+        assertTrue(calculator.digit2.isDisplayed());
+        calculator.digit2.click();
+        assertEquals(calculator.formula.getText(), calculator.digit2.getText());
+        calculator.add.click();
+        calculator.digit5.click();
+        calculator.eq.click();
+        assertEquals(calculator.formula.getText(), String.valueOf(result));
     }
-
-   /* @Test(description = "Reset password")
-    private void resetPassword() throws Exception {
-        //It's a workaround as I do not know how to turn back on application's home page
-        driver().launchApp();
-       // driver().isAppInstalled();
-        assertTrue(contactManagerPage.setPassword.isDisplayed());
-        contactManagerPage.setPassword.click();
-        assertEquals(contactManagerPage.resetTitle1.getText(), TITLE1);
-        assertEquals(contactManagerPage.resetTiltle2.getText(), TITLE2);
-        contactManagerPage.submitPassword();
-    }*/
 }
 
