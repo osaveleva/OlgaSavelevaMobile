@@ -1,19 +1,24 @@
 package constants;
 
-public class MobileTestingConstants {
+public enum MobileTestingConstants {
+    BROWSERCHROME("chrome"),
+    BROWSERSAFARI("Safari"),
+    USER_DIR("user.dir"),
+    PROPERTIES_PATH("/src/main/resources/test.properties"),
+    SUT_TITLE("Internet Assigned Numbers Authority"),
+    TITLE1("Set a Password"),
+    TITLE2("Please provide a Password"),
+    PASSWORD("123456"),
+    APPPACKAGE("appPackage"),
+    APPACTIVITY("appActivity");
 
-    public static final String BROWSERCHROME = "chrome";
-    public static final String BROWSERSAFARI = "Safari";
-    public static final String TEST_PLATFORM_ANDROID = "Android";
-    public static final String TEST_PLATFORM_IOS = "iOS";
-    public static final String USER_DIR = "user.dir";
-    public static final String PROPERTIES_PATH = "/src/main/resources/test.properties";
-    public static final String SUT_TITLE = "Internet Assigned Numbers Authority";
-    public static final String TITLE1 = "Set a Password";
-    public static final String TITLE2 = "Please provide a Password";
-    public static final String PASSWORD = "123456";
+    public String record;
 
-    public static final String APPACTIVITY = "appActivity";
-    public static final String UDID = "udid";
-    public static final String APPPACKAGE = "appPackage";
+    MobileTestingConstants(String record) {
+        this.record = record;
+    }
+
+    public String getRecord() {
+        return record;
+    }
 }

@@ -23,8 +23,8 @@ public class CloudWebTest extends Hooks {
     protected void websiteTest() throws Exception {
         webTestBaseEmulator.openSUT(SUT);
         webTestBaseEmulator.driverWaitUntil(SUT);
-        assertEquals(webTestBaseEmulator.getSUTTitle(), SUT_TITLE);
+        assertEquals(webTestBaseEmulator.getSUTTitle(), SUT_TITLE.getRecord());
         assertEquals(webTestBaseEmulator.getHTTPStatusCode(SUT), SC_OK);
-        assertEquals(webTestBaseEmulator.getSUTTitle(), SUT_TITLE);
+        assertEquals(webTestBaseEmulator.getSUTTitle(), SUT_TITLE.getRecord());
     }
 }

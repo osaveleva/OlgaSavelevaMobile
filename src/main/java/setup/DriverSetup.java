@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.net.URL;
 
 import static constants.MobileTestingConstants.*;
+import static constants.PlatformConstants.*;
+import static io.appium.java_client.remote.MobileCapabilityType.UDID;
 
 /**
  * Prepare driver and set desired capabilities for emulator's tests
@@ -46,10 +48,10 @@ public class DriverSetup extends TestProperties {
 
         switch (TEST_PLATFORM) {
             case TEST_PLATFORM_ANDROID:
-                browserName = BROWSERCHROME;
+                browserName = BROWSERCHROME.getRecord();
                 break;
             case TEST_PLATFORM_IOS:
-                browserName = BROWSERSAFARI;
+                browserName = BROWSERSAFARI.getRecord();
                 break;
             default:
                 throw new Exception("Unknown mobile paltform");
@@ -60,8 +62,8 @@ public class DriverSetup extends TestProperties {
         if (AUT != null && SUT == null) {
             File app = new File(AUT);
             //    cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-            cap.setCapability(APPPACKAGE, APPPACKAGE_VALUE);
-            cap.setCapability(APPACTIVITY, APPACTIVITY_VALUE);
+            cap.setCapability(APPPACKAGE.getRecord(), APPPACKAGE_VALUE);
+            cap.setCapability(APPACTIVITY.getRecord(), APPACTIVITY_VALUE);
         } else if (SUT != null && AUT == null) {
             cap.setCapability(MobileCapabilityType.BROWSER_NAME, browserName);
         } else {

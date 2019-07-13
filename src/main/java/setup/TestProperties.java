@@ -10,7 +10,7 @@ class TestProperties {
     private Properties currentProps = new Properties();
 
     private Properties getCurrentProps() throws IOException {
-        FileInputStream in = new FileInputStream(System.getProperty(USER_DIR) + PROPERTIES_PATH);
+        FileInputStream in = new FileInputStream(System.getProperty(USER_DIR.getRecord()) + PROPERTIES_PATH.getRecord());
         currentProps.load(in);
         in.close();
         return currentProps;
