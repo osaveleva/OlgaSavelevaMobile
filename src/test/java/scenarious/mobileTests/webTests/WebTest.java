@@ -1,4 +1,4 @@
-package scenarious.device.webTests;
+package scenarious.mobileTests.webTests;
 
 
 import base.Hooks;
@@ -12,14 +12,14 @@ import static constants.MobileTestingConstants.*;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = "web")
-public class DeviceWebTest extends Hooks {
+public class WebTest extends Hooks {
     private WebTestBase webTestBase = new WebTestBase();
 
-    protected DeviceWebTest() throws IOException {
+    protected WebTest() throws IOException {
         super();
     }
 
-    @Test(description = "Check website")
+    @Test(description = "Check website", groups = "emulatorWeb, deviceWeb")
     private void websiteTest() throws Exception {
         webTestBase.openSUT(SUT);
         webTestBase.driverWaitUntil(SUT);
@@ -27,4 +27,5 @@ public class DeviceWebTest extends Hooks {
         assertEquals(webTestBase.getHTTPStatusCode(SUT), HttpStatus.SC_OK);
         assertEquals(webTestBase.getSUTTitle(), SUT_TITLE.getRecord());
     }
+
 }
