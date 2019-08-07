@@ -11,7 +11,7 @@ import java.io.IOException;
 import static constants.MobileTestingConstants.*;
 import static org.testng.Assert.assertEquals;
 
-@Test(groups = "web")
+@Test(groups = {"web", "native"})
 public class WebTest extends Hooks {
     private WebTestBase webTestBase = new WebTestBase();
 
@@ -19,7 +19,7 @@ public class WebTest extends Hooks {
         super();
     }
 
-    @Test(description = "Check website", groups = "emulatorWeb, deviceWeb")
+    @Test(description = "Check website")
     private void websiteTest() throws Exception {
         webTestBase.openSUT(SUT);
         webTestBase.driverWaitUntil(SUT);

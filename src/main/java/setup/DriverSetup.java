@@ -35,7 +35,6 @@ public class DriverSetup extends TestProperties {
         TEST_PLATFORM = getProp("platformName");
         SUT = getProp("sut");
         DRIVER = getProp("driver");
-        DEVICE_NAME_EMULATOR = getProp("deviceNameEmulator");
         DEVICE_NAME = getProp("deviceName");
         APPACTIVITY_VALUE = getProp("appactivity");
     }
@@ -47,10 +46,7 @@ public class DriverSetup extends TestProperties {
 
         switch (TEST_PLATFORM) {
             case PLATFORM_ANDROID:
-                if (DEVICE_NAME_EMULATOR != null && DEVICE_NAME == null)
-                    cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME_EMULATOR);
-                else if (DEVICE_NAME_EMULATOR == null && DEVICE_NAME != null)
-                    cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
+                cap.setCapability(MobileCapabilityType.DEVICE_NAME, DEVICE_NAME);
                 browserName = BROWSERCHROME.getRecord();
                 break;
             case PLATFORM_iOS:
