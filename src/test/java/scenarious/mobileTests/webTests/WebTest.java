@@ -15,7 +15,7 @@ import static org.testng.Assert.assertEquals;
 public class WebTest extends Hooks {
     private WebTestBase webTestBase = new WebTestBase();
 
-    protected WebTest() throws IOException {
+    protected WebTest() throws Exception {
         super();
     }
 

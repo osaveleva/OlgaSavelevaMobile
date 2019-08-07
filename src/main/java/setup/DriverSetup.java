@@ -21,27 +21,21 @@ public class DriverSetup extends TestProperties {
     private static AppiumDriver driverSingle = null;
 
 
-    private String AUT;
     protected String SUT;
-    private String TEST_PLATFORM;
-    private String DRIVER;
-    private String DEVICE_NAME_EMULATOR;
-    private String APPACTIVITY_VALUE;
-    private String DEVICE_NAME;
 
 
-    protected DriverSetup() throws IOException {
-        AUT = getProp("aut");
-        TEST_PLATFORM = getProp("platformName");
-        SUT = getProp("sut");
-        DRIVER = getProp("driver");
-        DEVICE_NAME = getProp("deviceName");
-        APPACTIVITY_VALUE = getProp("appactivity");
+    public DriverSetup()  {
     }
 
     protected void prepareDriver() throws Exception {
         DesiredCapabilities cap = new DesiredCapabilities();
         String browserName;
+        String AUT = getProp("aut");
+        String TEST_PLATFORM = getProp("platformName");
+        SUT = getProp("sut");
+        String DRIVER = getProp("driver");
+        String DEVICE_NAME = getProp("deviceName");
+        String APPACTIVITY_VALUE = getProp("appactivity");
 
 
         switch (TEST_PLATFORM) {

@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 @Test(groups = {"native"})
 public class NativeTest extends Hooks {
 
-    public NativeTest() throws IOException {
+    public NativeTest()  {
         super();
     }
 

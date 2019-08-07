@@ -20,14 +20,8 @@ public class Hooks extends DriverSetup {
 
     protected ContactManagerPage contactManagerPage;
 
-    protected Hooks() throws IOException {
-    }
 
-   /* public Hooks() throws IOException {
-        super();
-    }*/
-
-    @BeforeMethod(groups = {"native"})
+    @BeforeSuite(groups = {"native"})
     public void setNative() throws Exception {
         setpropertyFile(PropertyFile.NATIVE);
         prepareDriver();
