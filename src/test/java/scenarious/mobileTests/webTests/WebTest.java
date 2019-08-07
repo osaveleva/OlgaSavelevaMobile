@@ -11,7 +11,7 @@ import java.io.IOException;
 import static constants.MobileTestingConstants.*;
 import static org.testng.Assert.assertEquals;
 
-@Test(groups = {"web", "native"})
+@Test(groups = {"web"})
 public class WebTest extends Hooks {
     private WebTestBase webTestBase = new WebTestBase();
 

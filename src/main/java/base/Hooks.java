@@ -18,12 +18,13 @@ import java.io.IOException;
 
 public class Hooks extends DriverSetup {
 
-    protected ContactManagerPage contactManagerPage;
+    protected static ContactManagerPage contactManagerPage;
 
 
     @BeforeSuite(groups = {"native"})
     public void setNative() throws Exception {
         setpropertyFile(PropertyFile.NATIVE);
+        System.out.println(SUT);
         prepareDriver();
         contactManagerPage = PageFactory.initElements(driver(), ContactManagerPage.class);
     }

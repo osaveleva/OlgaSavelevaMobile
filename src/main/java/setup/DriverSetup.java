@@ -19,13 +19,9 @@ import static constants.PlatformConstants.*;
 public class DriverSetup extends TestProperties {
     private static WebDriverWait waitSingle;
     private static AppiumDriver driverSingle = null;
+    protected static String SUT;
+    protected static String DEVICE_NAME;
 
-
-    protected String SUT;
-
-
-    public DriverSetup()  {
-    }
 
     protected void prepareDriver() throws Exception {
         DesiredCapabilities cap = new DesiredCapabilities();
@@ -34,7 +30,7 @@ public class DriverSetup extends TestProperties {
         String TEST_PLATFORM = getProp("platformName");
         SUT = getProp("sut");
         String DRIVER = getProp("driver");
-        String DEVICE_NAME = getProp("deviceName");
+        DEVICE_NAME = getProp("deviceName");
         String APPACTIVITY_VALUE = getProp("appactivity");
 
 

@@ -21,7 +21,7 @@ public class NativeTest extends Hooks {
     private void contactUs() throws Exception {
         assertTrue(contactManagerPage.contactUs.isDisplayed());
         contactManagerPage.contactUs.click();
-        if (getProp("deviceName").contains("emulator")){
+        if (DEVICE_NAME.matches("emulator.*")){
             driver().hideKeyboard();
         }
         assertTrue(contactManagerPage.contactName.isDisplayed());
@@ -39,7 +39,7 @@ public class NativeTest extends Hooks {
         contactManagerPage.setPassword.click();
         assertEquals(contactManagerPage.resetTitle1.getText(), TITLE1.getRecord());
         assertEquals(contactManagerPage.resetTiltle2.getText(), TITLE2.getRecord());
-        if (getProp("deviceName").contains("emulator")){
+        if (DEVICE_NAME.matches("emulator.*")){
             driver().hideKeyboard();
         }
         contactManagerPage.submitPassword();
