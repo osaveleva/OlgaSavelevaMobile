@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 
-@Test(groups = "native")
+@Test(groups = {"native"})
 public class CloudNativeTest extends Hooks {
 
     public CloudNativeTest() throws IOException {

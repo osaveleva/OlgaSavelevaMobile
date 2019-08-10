@@ -2,7 +2,9 @@ package base;
 
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
 import pageObjects.Calculator;
 import setup.DriverSetup;
 
@@ -20,14 +22,20 @@ public class Hooks extends DriverSetup {
         super();
     }
 
-    @BeforeClass
-    public void setUp() throws Exception {
+    @BeforeSuite (groups = {"native"})
+    public void setNative() throws Exception {
         prepareDriver();
         calculator = PageFactory.initElements(driver(), Calculator.class);
     }
 
-    @AfterClass
+    @BeforeSuite (groups = {"web"})
+    public void setWeb() throws Exception {
+        prepareDriver();
+        calculator = PageFactory.initElements(driver(), Calculator.class);
+    }
+
+    @AfterSuite( groups = {"native","web"})
     public void tearDown() throws Exception {
-        driver().quit();
+        driver().closeApp();
     }
 }
