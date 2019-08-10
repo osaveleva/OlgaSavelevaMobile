@@ -2,10 +2,7 @@ package base;
 
 import constants.PropertyFile;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import pageObjects.ContactManagerPage;
 import setup.DriverSetup;
 
@@ -24,7 +21,6 @@ public class Hooks extends DriverSetup {
     @BeforeSuite(groups = {"native"})
     public void setNative() throws Exception {
         setpropertyFile(PropertyFile.NATIVE);
-        System.out.println(SUT);
         prepareDriver();
         contactManagerPage = PageFactory.initElements(driver(), ContactManagerPage.class);
     }
@@ -35,9 +31,8 @@ public class Hooks extends DriverSetup {
         prepareDriver();
     }
 
-    @AfterClass (groups = {"web", "native"}, description = "Close driver on all tests comletion")
+    @AfterSuite(groups = {"web", "native"}, description = "Close driver on all tests comletion")
     public void tearDown() throws Exception {
-        //driver().quit();
         driver().closeApp();
     }
 }

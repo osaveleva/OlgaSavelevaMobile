@@ -5,12 +5,10 @@ public enum MobileTestingConstants {
     BROWSERSAFARI("Safari"),
     USER_DIR("user.dir"),
     PROPERTIES_PATH("/src/main/resources/"),
-    SUT_TITLE("Internet Assigned Numbers Authority"),
-    TITLE1("Set a Password"),
-    TITLE2("Please provide a Password"),
+    EXPECTED_TITLE("Internet Assigned Numbers Authority"),
     PASSWORD("123456"),
-
-    APPACTIVITY("appActivity");
+    APPACTIVITY("appActivity"),
+    REGEXP_EMULATOR_NAME ("emulator.*");
 
     public String record;
 

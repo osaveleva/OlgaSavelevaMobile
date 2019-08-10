@@ -13,7 +13,7 @@ import static org.testng.Assert.assertTrue;
 @Test(groups = {"native"})
 public class NativeTest extends Hooks {
 
-    public NativeTest()  {
+    public NativeTest() {
         super();
     }
 
@@ -21,7 +21,7 @@ public class NativeTest extends Hooks {
     private void contactUs() throws Exception {
         assertTrue(contactManagerPage.contactUs.isDisplayed());
         contactManagerPage.contactUs.click();
-        if (DEVICE_NAME.matches("emulator.*")){
+        if (DEVICE_NAME.matches(REGEXP_EMULATOR_NAME.getRecord())) {
             driver().hideKeyboard();
         }
         assertTrue(contactManagerPage.contactName.isDisplayed());
@@ -37,11 +37,7 @@ public class NativeTest extends Hooks {
         driver().launchApp();
         assertTrue(contactManagerPage.setPassword.isDisplayed());
         contactManagerPage.setPassword.click();
-        assertEquals(contactManagerPage.resetTitle1.getText(), TITLE1.getRecord());
-        assertEquals(contactManagerPage.resetTiltle2.getText(), TITLE2.getRecord());
-        if (DEVICE_NAME.matches("emulator.*")){
-            driver().hideKeyboard();
-        }
+        assertTrue(contactManagerPage.resetTitle1.isDisplayed());
         contactManagerPage.submitPassword();
     }
 }

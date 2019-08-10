@@ -2,30 +2,27 @@ package scenarious.mobileTests.webTests;
 
 
 import base.Hooks;
-import base.WebTestBase;
+import pageObjects.WebPage;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
-
-import java.io.IOException;
 
 import static constants.MobileTestingConstants.*;
 import static org.testng.Assert.assertEquals;
 
 @Test(groups = {"web"})
 public class WebTest extends Hooks {
-    private WebTestBase webTestBase = new WebTestBase();
+    private WebPage webPage = new WebPage();
 
-    protected WebTest() throws Exception {
+    protected WebTest() {
         super();
     }
 
     @Test(description = "Check website")
     private void websiteTest() throws Exception {
-        webTestBase.openSUT(SUT);
-        webTestBase.driverWaitUntil(SUT);
-        assertEquals(webTestBase.getSUTTitle(), SUT_TITLE.getRecord());
-        assertEquals(webTestBase.getHTTPStatusCode(SUT), HttpStatus.SC_OK);
-        assertEquals(webTestBase.getSUTTitle(), SUT_TITLE.getRecord());
+        webPage.openSUT(SUT);
+        webPage.driverWaitUntil(SUT);
+        assertEquals(webPage.getSUTTitle(), EXPECTED_TITLE.getRecord());
+        assertEquals(webPage.getHTTPStatusCode(SUT), HttpStatus.SC_OK);
     }
 
 }

@@ -13,7 +13,7 @@ import static constants.MobileTestingConstants.PASSWORD;
  */
 
 public class ContactManagerPage extends DriverSetup {
-    public ContactManagerPage() throws IOException {
+    public ContactManagerPage() {
         super();
     }
 
@@ -51,12 +51,10 @@ public class ContactManagerPage extends DriverSetup {
     private WebElement submitPasswordButton;
 
 
-    public void submitPassword() {
+    public void submitPassword() throws Exception {
         crpass.sendKeys(PASSWORD.getRecord());
+        driver().hideKeyboard();
         submitPasswordButton.click();
     }
 
-    public String titleValue(WebElement element) {
-        return element.getText();
-    }
 }
