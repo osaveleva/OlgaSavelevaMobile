@@ -25,14 +25,14 @@ public class Hooks extends DriverSetup {
 
     @BeforeSuite (groups = {"native"})
     public void setNative() throws Exception {
-      //  setpropertyFile(PropertyFile.NATIVE);
+        setpropertyFile(PropertyFile.NATIVE);
         prepareDriver();
         calculator = PageFactory.initElements(driver(), Calculator.class);
     }
 
     @BeforeSuite (groups = {"web"})
     public void setWeb() throws Exception {
-     //   setpropertyFile(PropertyFile.WEB);
+        setpropertyFile(PropertyFile.WEB);
         prepareDriver();
         calculator = PageFactory.initElements(driver(), Calculator.class);
     }
