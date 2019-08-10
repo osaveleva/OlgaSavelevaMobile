@@ -31,7 +31,7 @@ public class Hooks extends DriverSetup {
         prepareDriver();
     }
 
-    @AfterSuite(groups = {"web", "native"}, description = "Close driver on all tests comletion")
+    @AfterSuite(groups = {"web", "native"}, description = "Close driver on all tests completion")
     public void tearDown() throws Exception {
         driver().closeApp();
     }
