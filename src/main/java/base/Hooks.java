@@ -19,25 +19,25 @@ public class Hooks extends DriverSetup {
 
     protected Calculator calculator;
 
-    public Hooks() throws IOException {
+    public Hooks() {
         super();
     }
 
-    @BeforeSuite (groups = {"native"})
+    @BeforeSuite(groups = {"native"})
     public void setNative() throws Exception {
         setpropertyFile(PropertyFile.NATIVE);
         prepareDriver();
         calculator = PageFactory.initElements(driver(), Calculator.class);
     }
 
-    @BeforeSuite (groups = {"web"})
+    @BeforeSuite(groups = {"web"})
     public void setWeb() throws Exception {
         setpropertyFile(PropertyFile.WEB);
         prepareDriver();
         calculator = PageFactory.initElements(driver(), Calculator.class);
     }
 
-    @AfterSuite( groups = {"native","web"})
+    @AfterSuite(groups = {"native", "web"})
     public void tearDown() throws Exception {
         driver().closeApp();
     }

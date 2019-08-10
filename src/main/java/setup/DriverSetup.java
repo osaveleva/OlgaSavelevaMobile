@@ -20,31 +20,19 @@ import static io.appium.java_client.remote.MobileCapabilityType.UDID;
 public class DriverSetup extends TestProperties {
     private static WebDriverWait waitSingle;
     private static AppiumDriver driverSingle = null;
-
-    private String AUT;
-    protected String SUT;
-    private String TEST_PLATFORM;
-    private String DRIVER;
-    private String DEVICE_NAME;
-    private String APPACTIVITY_VALUE;
-    private String UDID_VALUE;
-    private String APPPACKAGE_VALUE;
-
-
-    protected DriverSetup() throws IOException {
-        AUT = getProp("aut");
-        TEST_PLATFORM = getProp("platformName");
-        SUT = getProp("sut");
-        DRIVER = getProp("driver");
-        DEVICE_NAME = getProp("deviceName");
-        APPACTIVITY_VALUE = getProp("appactivity");
-        UDID_VALUE = getProp("udid");
-        APPPACKAGE_VALUE = getProp("appPackage");
-    }
+    protected static String SUT;
 
     protected void prepareDriver() throws Exception {
         DesiredCapabilities cap = new DesiredCapabilities();
         String browserName;
+        String AUT = getProp("aut");
+        String TEST_PLATFORM = getProp("platformName");
+        SUT = getProp("sut");
+        String DRIVER = getProp("driver");
+        String UDID_VALUE = getProp("udid");
+        String APPACTIVITY_VALUE = getProp("appPackage");
+        String APPPACKAGE_VALUE = getProp("appactivity");
+
 
         switch (TEST_PLATFORM) {
             case TEST_PLATFORM_ANDROID:
